@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLI>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Conjugaison</title>
+
+</head>
+<body>
+<div id="pge"><fieldset><legend>moul-conjug</legend>
+    <p><label><input id="npt" type="text" value=""> Choix du verbe à conjuger </label><input type="button" value="Ok !" onclick="conjugue()"></p>
+    <div id="rsp"></div>
+</fieldset></div>
+<script type="text/javascript">
+
+//verbes se terminant en er
+var premierGroupeRgl="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>e</b></p><p>Tu XXXX<b>es</b></p><p>Il, elle XXXX<b>e</b></p><p>Nous XXXX<b>ons</b></p><p>Vous XXXX<b>ez</b></p>Ils, elles XXXX<b>ent</b></p>";
+
+//verbes se terminant en ir
+var premierGroupeRg2="<p><u>Présent de l'indicatif</u></p><p>Je XXXX<b>is</b></p><p>Tu XXXX<b>is</b></p><p>Il, elle XXXX<b>it</b></p><p>Nous XXXX<b>issons</b></p><p>Vous XXXX<b>issez</b></p>Ils, elles XXXX<b>issent</b></p>";
+
+////verbes se terminant en mir
+var premierGroupeRg3="<p><u>Présent de l'indicatif</u></p><p>Je XXXX<b>s</b></p><p>Tu XXXX<b>s</b></p><p>Il, elle XXXX<b>t</b></p><p>Nous XXXX<b>mons</b></p><p>Vous XXXX<b>mez</b></p>Ils, elles XXXX<b>ment</b></p>";
+
+//partir
+var premierGroupeRg4="<p><u>Présent de l'indicatif</u></p><p>Je XXXX<b>s</b></p><p>Tu XXXX<b>s</b></p><p>Il, elle XXXX<b>t</b></p><p>Nous XXXX<b>tons</b></p><p>Vous XXXX<b>tez</b></p>Ils, elles XXXX<b>tent</b></p>";
+//verbes se terminant en cer
+
+var premierGroupeRg5="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>ce</b></p><p>Tu XXXX<b>ces</b></p><p>Il, elle XXXX<b>ce</b></p><p>Nous XXXX<b>çons</b></p><p>Vous XXXX<b>cez</b></p>Ils, elles XXXX<b>cent</b></p>";
+//verbes se terminant en ger
+var premierGroupeRg6="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>e</b></p><p>Tu XXXX<b>es</b></p><p>Il, elle XXXX<b>e</b></p><p>Nous XXXX<b>eons</b></p><p>Vous XXXX<b>ez</b></p>Ils, elles XXXX<b>ent</b></p>";
+//verbe en guer
+var premierGroupeRg7="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>e</b></p><p>Tu XXXX<b>es</b></p><p>Il, elle XXXX<b>e</b></p><p>Nous XXXX<b>uons</b></p><p>Vous XXXX<b>uez</b></p>Ils, elles XXXX<b>ent</b></p>";
+// verbe en eter
+var premierGroupeRg8="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>ète</b></p><p>Tu XXXX<b>ètes</b></p><p>Il, elle XXXX<b>ète</b></p><p>Nous XXXX<b>etons</b></p><p>Vous XXXX<b>ètez</b></p>Ils, elles XXXX<b>ètent</b></p>";
+// verbe en eler
+var premierGroupeRg9="<p><u>Présent de l'indicatif</u></p><p>Je/j' XXXX<b>èle</b></p><p>Tu XXXX<b>èles</b></p><p>Il, elle XXXX<b>èle</b></p><p>Nous XXXX<b>elons</b></p><p>Vous XXXX<b>èlez</b></p>Ils, elles XXXX<b>èlent</b></p>";
+//aller
+var premierGroupeRg10="<p><u>Présent de l'indicatif</u></p><p>Je vais </b></p><p>Tu vas</p><p>Il, elle va</p><p>Nous allons</b></p><p>Vous allez</b></p>Ils, elles vont </p>";
+
+function conjugue(){var vrb=document.getElementById('npt').value;
+    // test surr la nature du verbe
+    if (vrb.substr(-3)=="ger"){
+      document.getElementById('rsp').innerHTML=premierGroupeRg6.replace(/XXXX/g,vrb.substr(0,vrb.length-2));
+
+    }
+else if (vrb.substr(-3)=="mir") {
+  document.getElementById('rsp').innerHTML=premierGroupeRg3.replace(/XXXX/g,vrb.substr(0,vrb.length-3));}
+
+ else if (vrb.substr(-2)=="ir") {
+    document.getElementById('rsp').innerHTML=premierGroupeRg2.replace(/XXXX/g,vrb.substr(0,vrb.length-2));
+}
+ else if ( vrb=="partir" ) {
+  document.getElementById('rsp').innerHTML=premierGroupeRg4.replace(/XXXX/g,vrb.substr(0,vrb.length-3));}
+
+  else if ( vrb=="aller" ) {
+   document.getElementById('rsp').innerHTML=premierGroupeRg10;
+
+}
+ else if (vrb.substr(-3)=="cer" ){
+   document.getElementById('rsp').innerHTML=premierGroupeRg5.replace(/XXXX/g,vrb.substr(0,vrb.length-3));
+
+ }
+ else if (vrb.substr(-4)=="eter") {
+     document.getElementById('rsp').innerHTML=premierGroupeRg8.replace(/XXXX/g,vrb.substr(0,vrb.length-4));}
+
+
+          else if (vrb.substr(-4)=="eler") {
+              document.getElementById('rsp').innerHTML=premierGroupeRg9.replace(/XXXX/g,vrb.substr(0,vrb.length-4));}
+
+
+     else if (vrb.substr(-4)=="guer") {
+         document.getElementById('rsp').innerHTML=premierGroupeRg7.replace(/XXXX/g,vrb.substr(0,vrb.length-3));}
+
+
+
+
+             else if (vrb.substr(-2)=="er") {
+                 document.getElementById('rsp').innerHTML=premierGroupeRgl.replace(/XXXX/g,vrb.substr(0,vrb.length-2));}
+
+
+}
+</script>
+</body>
+</html>
